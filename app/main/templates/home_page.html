@@ -1,0 +1,24 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <center>
+        <span style="color:red">{{ raise_activation_error }}</span><br>
+        <span>Hello {{ request.user.username }}</span><br>
+        {% if not request.user.is_authenticated %}
+        <a href="/login"><button>Login</button></a>
+        <a href="/register"><button>Register</button></a>
+        {% else %}
+        <a href="/logout"><button>Logout</button></a>
+        {% endif %}
+    </center>
+</body>
+
+</html>

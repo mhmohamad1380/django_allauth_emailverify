@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<body>
+    <form action="/register" method="post">
+        {% csrf_token %}
+
+        {% for error in register_form.username.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <label for="{{ register_form.username.id_for_label }}">{{ register_form.username.label }}</label>
+        {{ register_form.username }}
+        <br>
+        {% for error in register_form.email.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label>
+        {{ register_form.email }}
+        <br>
+        {% for error in register_form.password.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label>
+        {{ register_form.password }}
+        <br>
+        {% for error in register_form.re_password.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+        <label for="{{ register_form.re_password.id_for_label }}">{{ register_form.re_password.label }}</label>
+        {{ register_form.re_password }}
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>
